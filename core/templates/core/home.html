@@ -1,0 +1,275 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página Principal</title>
+  <!--BOOTSTRAP-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+  <!--INICIO MENU-->
+  <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand">
+        <img src="{% static 'core/img/Logo/logofrikitime.png' %}" alt="Logo" id="logo">
+      </a>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a href="{% url 'home' %}" class="nav-link">
+              <i class="fas fa-home"></i>
+              Inicio
+            </a>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" data-toggle="dropdown" data-target="despegable" href="#">
+              <i class="fas fa-comment-dollar"></i>
+              Venta
+            </a>
+            <div class="dropdown-menu">
+            </div>
+          </li>
+          <li class="nav-item active">
+              <i class="fas fa-envelope"></i>
+              Contacto
+            </a>
+          </li>
+          <li class="nav-item dropdown" id="wiki">
+            <a class="nav-link dropdown-toggle active" data-toggle="dropdown" data-target="despegable" href="#">
+              <i class="fas fa-asterisk"></i>
+              Friki-Wiki
+            </a>
+            <div class="dropdown-menu">
+
+            </div>
+          </li>
+          <li class="nav-item dropdown" id="wiki">
+            <a class="nav-link dropdown-toggle active" data-toggle="dropdown" data-target="despegable" href="#">
+              <i class="fas fa-user-lock"></i>
+              Admin
+            </a>
+            <div class="dropdown-menu">
+
+            </div>
+          </li>
+        </ul>
+
+        <p> </p>
+
+        <input type="search" id="input-search" placeholder="Buscar . . .">
+        <button type="button" class="btn btn-light mr-sm-4"><i class="fas fa-search"></i></button>
+
+        <div class="content-search">
+          <div class="content-table">
+            <table id="table">
+              <thead>
+                <tr>
+                  <td></td>
+                </tr>
+              </thead>
+
+              <tbody>
+
+                </tr>
+                  <td><a href="#">Wiki Ghibli</a></td>
+                </tr>
+                <tr>
+                  <td><a href="#">Wiki Animes</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </nav>
+  </div>
+
+  <p></p>
+  <!--TERMINO MENU-->
+
+  <!--INICIO CARRUSEL-->
+  <div class="container-fluid">
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active img-fluid imagen 1">
+            <img class="d-block w-50" src="#" alt="Perifericos">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Perifericos</h5>
+              <a href="#">VER MÁS... </a>
+            </div>
+          </div>
+
+          <div class="carousel-item img-fluid imagen 2">
+            <img class="d-block w-50" src="#" alt="Funkos">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Funko Pop's</h5>
+              <a href="#">VER MÁS... </a>
+            </div>
+          </div>
+
+          <div class="carousel-item img-fluid imagen 3">
+            <img class="d-block w-50" src="#" alt="Consolas">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Consolas</h5>
+              <a href="#">VER MÁS... </a>
+            </div>
+          </div>
+
+          <div class="carousel-item img-fluid imagen 4"> 
+            <img class="d-block w-50" src="#"
+              alt="Juegos consolas">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Videojuegos</h5>
+              <a href="#">VER MÁS... </a>
+            </div>
+          </div>
+        </div>
+
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Anterior</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Siguiente</span>
+        </a>
+      </div>
+    </div>
+  <!--TERMINO CARRUSEL-->
+  <p></p>
+
+  <div class="container-fluid"></div>
+  <h1 class="text-center">DESTACADOS</h1>
+
+  <p></p>
+  <!--INICIO CARD-->
+  <!--<button type="button" class="btn btn-secondary btn-block">CONTAINER FLUID</button>-->
+  <div class="container-fluid">
+    <div class="card-deck">
+      <div class="card">
+        <img class="card-img-top" src="#" alt="Funko pop Mandalorian">
+        <div class="card-body">
+          <h5 class="card-title">FUNKO POP STAR WARS: THE MANDALORIAN</h5>
+          <a href="#" class="btn btn-info btn-md active" role="button"
+            aria-pressed="true">DETALLES</a>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">24.990 $ CLP</small>
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-img-top" src="#" alt="Juego ps4">
+        <div class="card-body">
+          <h5 class="card-title">OUTRIDERS - PS4</h5>
+          <a href="#" class="btn btn-info btn-md active" role="button"
+            aria-pressed="true">DETALLES</a>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">44.990 $ CLP</small>
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-img-top" src="#" alt="Audifonos steelseries" width="468"
+          height="468">
+        <div class="card-body">
+          <h5 class="card-title">AUDIFONOS STEELSERIES SIBERIA V2 FROST BLUE</h5>
+          <a href="#" class="btn btn-info btn-md active" role="button"
+            aria-pressed="true">DETALLES</a>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">39.990 $ CLP</small>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <p></p>
+
+  <div class="container-fluid">
+    <div class="card-deck">
+      <div class="card">
+        <img class="card-img-top" src="#" alt="Juego Nintendo Switch">
+        <div class="card-body">
+          <h5 class="card-title">MARIO KART 8 DELUXE - NINTENDO SWITCH</h5>
+          <a href="#" class="btn btn-info btn-md active" role="button"
+            aria-pressed="true">DETALLES</a>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">39.990 $ CLP</small>
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-img-top" src="#" alt="Juego xbox">
+        <div class="card-body">
+          <h5 class="card-title">COD: MODERN WARFARE - XBOX ONE</h5>
+          <a href="#" class="btn btn-info btn-md active" role="button"
+            aria-pressed="true">DETALLES</a>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">44.990 $ CLP</small>
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-img-top" src="#" alt="Mouse logitech blanco">
+        <div class="card-body">
+          <h5 class="card-title">MOUSE LOGITECH G203 LIGHTSYNC BLANCO</h5>
+          <a href="#" class="btn btn-info btn-md active" role="button"
+            aria-pressed="true">DETALLES</a>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">24.990 $ CLP</small>
+        </div>
+      </div>
+
+    </div>
+    <br>
+    <br>
+    <div class="d-flex justify-content-center" id="tiempo">
+      <div class="card weather">
+          <img src="#" class="card-img-top weather-icon" alt="Sin Dato" id="imagen-clima">
+          <div class="card-body">
+              <h5 class="card-title weather-descrip">Sin Datos</h5>
+              <p class="card-text weather-temp"><b>Geolocalización no compartida</b><br><b></b></p>
+          </div>
+      </div>
+    </div>
+    
+
+  </div>
+
+  <p><br><br><small id="emailHelp" class="form-text text-muted text-center">Todos los derechos reservados © Friki Blinders, 2021</small><br></p>
+
+  <!--TERMINO CARDS-->
+
+  <!--OTROS-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+    integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>
