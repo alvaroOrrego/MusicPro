@@ -6,16 +6,16 @@
         </tr>
         <tr>
             <th scope="col">Nombre</th>
-            <th scope="col">Descripcion</th>
-            <th scope="col">Precio</th>
+            <th scope="col">Precio unidad</th>
+            <th scope="col">Precio total</th>
         </tr>
     </thead>
     <tbody>
         {% if request.session.carrito.items %}
         {% for key, value in request.session.carrito.items %}
         <tr>
-            <td>{{value.nombreProducto}}</td>
-            <td>{{value.descripcionProducto}}</td>
+            <td>{{value.nombre}}</td>
+            <td>{{value.precio}}</td>
             <td>{{value.acumulado}}
                 <a href="{% url 'add' value.id_producto %}" class="badge btn btn-dark badge-dark">+</a>
                 <a href="{% url 'restart' value.id_producto %}" class="badge btn btn-dark badge-dark">-</a>
@@ -40,8 +40,8 @@
 <div class="row text-center">
     <div class="col-6"><a href="{% url 'cls' %}" class="btn btn-danger">Limpiar</a></div>
     <div class="col-6"><a href="#" class="btn btn-success">Guardar</a>
-        <p>
+<!--         <p>
             <div id="respuesta" class="alert alert-success" role="alert">{{msj}}</div>
-        </p></div>
+        </p></div> -->
     
 </div>

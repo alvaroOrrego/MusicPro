@@ -5,8 +5,8 @@ from . import views
 from .views import tienda, agregarProducto, eliminarProducto, restartProducto, limpiarCarrito
 
 urlpatterns = [
-    path('', tienda, name="tienda"),
-    path('get_all', views.get_all, name='get_all'),
+#   path('', tienda, name="tienda"),
+    path('', views.tienda, name='tienda'),
     path('post_producto', views.post_producto, name='post_producto'),
     path('put_producto', views.put_producto, name='put_producto'),
     path('delete_producto', views.delete_producto, name='delete_producto'),

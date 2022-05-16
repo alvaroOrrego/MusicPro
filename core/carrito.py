@@ -20,6 +20,7 @@ class Carrito:
                 "id_producto": producto.id_producto,
                 "nombre": producto.nombreProducto,
                 "descripcion": producto.descripcion,
+                "precio": producto.precio,
                 "acumulado": producto.precio,
                 "disponibilidad": producto.disponibilidad,
                 "cantidad": 1,

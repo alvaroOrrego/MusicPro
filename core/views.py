@@ -13,9 +13,9 @@ from .models import Producto
 def index(request):
      return render(request, 'core/index.html')
 
-def tienda(request):
-    productos = Producto.objects.all()
-    return render(request, 'core/tienda.html', {'productos':productos})
+#def tienda(request):
+ #   productos = Producto.objects.all()
+  #  return render(request, 'core/tienda.html', {'productos':productos})
 
 # API USD:
 def usandoAPI(request):
@@ -25,11 +25,11 @@ def usandoAPI(request):
     return render(request, 'core/apiUsd.html', context)
 
 
-def get_all(request):
+def tienda(request):
     context = {
         'lista' : get_productos()  
     }          
-    return render(request, 'core/get.html', context)
+    return render(request, 'core/tienda.html', context)
 
 
 def post_producto(request):
