@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from django.http import HttpResponse
 from .servicios import get_productos
@@ -6,10 +6,16 @@ from .servicios import post_productos
 from .servicios import put_productos
 from .servicios import delete_productos
 from .servicios import usoAPI
+from .carrito import Carrito
+from .models import Producto
 
 
 def index(request):
      return render(request, 'core/index.html')
+
+def tienda(request):
+    productos = Producto.objects.all()
+    return render(request, 'core/tienda.html', {'productos':productos})
 
 # API USD:
 def usandoAPI(request):
@@ -27,7 +33,7 @@ def get_all(request):
 
 
 def post_producto(request):
-    dato = { 'descripcion': 'guitarra electrica terrible wena', 'precio': 109990, 'disponible': 1, 'TIPO_PRODUCTO_id': 1}
+    dato = { 'nombre': 'Guitarrita electriquita','descripcion': 'guitarra electrica terrible wena', 'precio': 109990, 'disponible': 1, 'TIPO_PRODUCTO_id': 1}
     context = {
         'mensaje': post_productos(dato)
     }
@@ -47,5 +53,31 @@ def delete_producto(request):
     context = {
         'mensaje': delete_productos(id)
     }
-    return render(request, 'delete.html', context)    
-    
+    return render(request, 'delete.html', context)
+
+def index(request):
+    productos = Producto.objects.all()
+    return render(request, "tienda.html", {'productos':productos})
+
+def agregarProducto(request, id_producto):
+    carrito = Carrito(request)
+    producto = Producto.objects.get(id_producto=id_producto)
+    carrito.agregarCarrito(producto)
+    return redirect("tienda")
+
+def eliminarProducto(request, id_producto):
+    carrito = Carrito(request)
+    producto = Producto.objects.get(id_producto=id_producto)
+    carrito.eliminarCarrito(producto)
+    return redirect("tienda")
+
+def restartProducto(request, id_producto):
+    carrito = Carrito(request)
+    producto = Producto.objects.get(id_producto=id_producto)
+    carrito.restart(producto)
+    return redirect("tienda")
+
+def limpiarCarrito(request):
+    carrito = Carrito(request)
+    carrito.limpiar()
+    return redirect("tienda")

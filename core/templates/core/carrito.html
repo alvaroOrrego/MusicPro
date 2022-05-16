@@ -1,0 +1,47 @@
+<div class="alert alert-primary" roler="alert">
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="row" colspan="3" class="text-center">Carrito</th>
+        </tr>
+        <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Precio</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if request.session.carrito.items %}
+        {% for key, value in request.session.carrito.items %}
+        <tr>
+            <td>{{value.nombreProducto}}</td>
+            <td>{{value.descripcionProducto}}</td>
+            <td>{{value.acumulado}}
+                <a href="{% url 'add' value.id_producto %}" class="badge btn btn-dark badge-dark">+</a>
+                <a href="{% url 'restart' value.id_producto %}" class="badge btn btn-dark badge-dark">-</a>
+            </td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <tr>
+            <td colspan="3">
+                <div class="alert alert-danger text-center"> Sin Productos</div>
+            </td>
+        </tr>
+        {% endif %}
+        <tr>
+            <th scope="row">Total:</th>
+            <td colspan="2">$ {{totalCarrito}}</td>
+        </tr>
+    </tbody>
+</table>
+<hr>
+</div>
+<div class="row text-center">
+    <div class="col-6"><a href="{% url 'cls' %}" class="btn btn-danger">Limpiar</a></div>
+    <div class="col-6"><a href="#" class="btn btn-success">Guardar</a>
+        <p>
+            <div id="respuesta" class="alert alert-success" role="alert">{{msj}}</div>
+        </p></div>
+    
+</div>
