@@ -7,11 +7,17 @@ def usoAPI():
     datos = r.json()
     return datos
 
-def get_productos():
+def get_productosTodo():
+    url = 'http://localhost/webservicephp/controller/producto.php?REQUEST_METHOD=GET&disponible=1'
+    resultado = requests.get(url)
+    respuesta = resultado.json()
+    return respuesta
+
+def get_productos(dato):
     url = 'http://localhost/webservicephp/controller/producto.php?REQUEST_METHOD=GET'
     resultado = requests.get(url)
-    contactos = resultado.json()
-    return contactos
+    respuesta = resultado.json()
+    return respuesta
 
 
 def post_productos(dato):

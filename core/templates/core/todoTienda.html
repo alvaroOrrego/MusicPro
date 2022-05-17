@@ -15,15 +15,15 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-12 align-self-center"><h1 class="display-1">Stock disponible</h1></div> 
+            <div class="col-12 align-self-center"><h1 class="display-1">Todos los productos</h1></div> 
         </div>
         <div class="row">
             <div class="col-8">
-                <a href="{% url 'todoTienda' %}" class="btn btn-primary">Ver sin stock</a>
+                <a href="{% url 'tienda' %}" class="btn btn-primary">Volver</a>
                 <div class="row" style="padding: 10px 0;">
                     <div class="col-12">
                         <div class="row">
-                            {% for pro in lista %}
+                            {% for pro in listaSinStock %}
                             <div class="col-6">
                                 <div class="card">
                                     <div class="card-body">
@@ -36,7 +36,9 @@
                                         <p class="card-text">Descripción: {{pro.descripcion}}</p>
                                         <p class="card-text">Precio: {{pro.precio}}</p>
                                         <p class="card-text">Disponibilidad: {{pro.disponible}}</p>
-                                        <a href="{% url 'add' pro.id_producto %}" class="btn btn-success">Comprar</a>
+                                        {% if pro.disponible == "1" %}
+                                        <a href="{% url 'add2' pro.id_producto %}" class="btn btn-success">Comprar</a>
+                                        {% endif %}
                                     </div>
                                 </div>
                             </div>
@@ -46,10 +48,11 @@
                 </div>
             </div>
             <div class="col-4">
-                {% include "core/carrito.html" %}
+                {% include "core/carrito2.html" %}
             </div>
         </div>
     </div>
+    
     
 </body>
 </html>

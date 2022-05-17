@@ -12,6 +12,7 @@ class TipoProducto(models.Model):
 
 class Producto(models.Model):
     id_producto = models.IntegerField(primary_key=True, verbose_name='Id producto')
+    imagen = models.ImageField(verbose_name = 'Imagen del producto')
     nombreProducto = models.CharField(max_length=200, verbose_name='Nombre del producto')
     descripcion = models.CharField(max_length=200, verbose_name='Descripcion del producto')
     precio = models.IntegerField(verbose_name='Precio del producto')

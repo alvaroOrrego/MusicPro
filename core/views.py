@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 
 from django.http import HttpResponse
 from .servicios import get_productos
+from .servicios import get_productosTodo
 from .servicios import post_productos
 from .servicios import put_productos
 from .servicios import delete_productos
@@ -27,9 +28,16 @@ def usandoAPI(request):
 
 def tienda(request):
     context = {
-        'lista' : get_productos()  
+        'lista' : get_productosTodo()  
     }          
     return render(request, 'core/tienda.html', context)
+
+def todoTienda(request):
+    dato = {'disponible' : 2}
+    context = {
+        'listaSinStock' : get_productos(dato)  
+    }          
+    return render(request, 'core/todoTienda.html', context)
 
 
 def post_producto(request):
@@ -65,6 +73,12 @@ def agregarProducto(request, id_producto):
     carrito.agregarCarrito(producto)
     return redirect("tienda")
 
+def agregarProducto2(request, id_producto):
+    carrito = Carrito(request)
+    producto = Producto.objects.get(id_producto=id_producto)
+    carrito.agregarCarrito(producto)
+    return redirect("todoTienda")
+
 def eliminarProducto(request, id_producto):
     carrito = Carrito(request)
     producto = Producto.objects.get(id_producto=id_producto)
@@ -77,7 +91,24 @@ def restartProducto(request, id_producto):
     carrito.restart(producto)
     return redirect("tienda")
 
+def restartProducto2(request, id_producto):
+    carrito = Carrito(request)
+    producto = Producto.objects.get(id_producto=id_producto)
+    carrito.restart(producto)
+    return redirect("todoTienda")
+
 def limpiarCarrito(request):
     carrito = Carrito(request)
     carrito.limpiar()
     return redirect("tienda")
+
+def limpiarCarrito2(request):
+    carrito = Carrito(request)
+    carrito.limpiar()
+    return redirect("todoTienda")
+
+#def dctar(request, id_producto):
+ #   carrito = Carrito(request)
+  #  producto = Producto.objects.get(id_producto=id_producto)
+   # carrito.dcto(producto)
+    #return redirect("tienda")
