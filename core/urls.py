@@ -19,5 +19,5 @@ urlpatterns = [
     path('restart2/<int:id_producto>/', restartProducto2, name="restart2"),
     path('limpiar/', limpiarCarrito, name="cls"),
     path('limpiar2/', limpiarCarrito2, name="cls2"),
-    #path('dcto/<int:id_producto>/', dctar, name="dcto"),
+    #path('dcto', dctar, name="dcto"),
 ]

@@ -1,2 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MusicPro</title>
+    <!--BOOTSTRAP-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <!--CSS-->
+    <link rel="stylesheet" href="{% static 'core/css/addProducto.css' %}">
+</head>
+<body>
+    <div class="row" style="padding: 10px 0;">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{apiDolar.fecha}}</h5>
+                            <img src="https://www.cmfchile.cl/educa/621/propertyvalues-1587_foto_portada_2021.thumb_iPrincipal.jpg" alt=""
+                                width="200" height="200" id="imgCardUsd">
+    <!--                         <p>
+                            {% if pro.imagen %}
+                            <img src = "{{pro.imagen}}" width="250" height = "250" id="imgCard">
+                            {% endif %}
+                            </p> -->
+                            <p class="card-text">Valor compra: {{apiDolar.compra}}</p>
+                            <p class="card-text">Valor venta: {{apiDolar.venta}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 <p>API USD:</p>
 {{ apiDolar }}

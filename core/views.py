@@ -107,8 +107,9 @@ def limpiarCarrito2(request):
     carrito.limpiar()
     return redirect("todoTienda")
 
-#def dctar(request, id_producto):
- #   carrito = Carrito(request)
-  #  producto = Producto.objects.get(id_producto=id_producto)
-   # carrito.dcto(producto)
+#def dctar(request, precio):
+  #  carrito = Carrito(request)
+   # precio = Producto.objects.get(precio=precio)
+    #carrito.dcto(precio)
     #return redirect("tienda")
+

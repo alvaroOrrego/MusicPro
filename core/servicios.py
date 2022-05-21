@@ -35,4 +35,9 @@ def put_productos(dato):
 def delete_productos(id):
     url = 'http://localhost/webservicephp/controller/producto.php?REQUEST_METHOD=DELETE' + str(id)
     respuesta = requests.delete(url)
-    return respuesta   
+    return respuesta  
+
+def insert_pedido(dato):
+    url = "http://localhost/webservicephp/controller/pedido.php?REQUEST_METHOD=POST"
+    respuesta = requests.post(url, json = dato)
+    return respuesta
