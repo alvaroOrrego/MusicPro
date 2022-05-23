@@ -44,12 +44,13 @@ class Carrito:
             if self.carrito[id]["cantidad"] <= 0: self.eliminarCarrito(producto)
             self.guardarCarrito()
 
-    #def dcto(self):
-        #id = str(producto.id_producto)
-        #if id in self.carrito.keys():
-            #(self.carrito["acumulado"] * 0.30)
-            #self.guardarCarrito()
-
     def limpiar(self):
         self.session["carrito"] = {}
         self.session.modified = True
+
+
+    #def dcto(self):
+    #id = str(producto.id_producto)
+    #if id in self.carrito.keys():
+        #(self.carrito["acumulado"] * 0.30)
+        #self.guardarCarrito()

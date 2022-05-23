@@ -13,13 +13,18 @@
     <link rel="stylesheet" href="{% static 'core/css/addProducto.css' %}">
 </head>
 <body>
+    <div class="row">
+        <div class="col-12 align-self-center"><h1 class="display-1">Valor USD - CLP</h1></div> 
+    </div>
+    <a href="{% url 'tienda' %}" class="btn btn-danger" id="btnVolver">Volver</a>
     <div class="row" style="padding: 10px 0;">
-        <div class="col-12">
+        <div class="col-8">
             <div class="row">
-                <div class="col-12">
-                    <div class="card">
+                {% for usd in apiDolar.Dolares %}
+                <div class="col-4">
+                    <div class="card" id="cardUsd">
                         <div class="card-body">
-                            <h5 class="card-title">{{apiDolar.fecha}}</h5>
+                            <h4 class="card-title"><b>Fecha: {{usd.Fecha}}</b></h4>
                             <img src="https://www.cmfchile.cl/educa/621/propertyvalues-1587_foto_portada_2021.thumb_iPrincipal.jpg" alt=""
                                 width="200" height="200" id="imgCardUsd">
     <!--                         <p>
@@ -27,11 +32,12 @@
                             <img src = "{{pro.imagen}}" width="250" height = "250" id="imgCard">
                             {% endif %}
                             </p> -->
-                            <p class="card-text">Valor compra: {{apiDolar.compra}}</p>
-                            <p class="card-text">Valor venta: {{apiDolar.venta}}</p>
+                            <h5 class="card-text"><b>Valor: {{usd.Valor}}</b></h5>
+<!--                             <p class="card-text">Valor venta: {{apiDolar.venta}}</p> -->
                         </div>
                     </div>
                 </div>
+                {% endfor %}
             </div>
         </div>
     </div>

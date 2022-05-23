@@ -2,7 +2,7 @@ import json
 import requests
 
 def usoAPI():
-    url = 'https://api-dolar-argentina.herokuapp.com/api/dolaroficial'
+    url = 'https://api.cmfchile.cl/api-sbifv3/recursos_api/dolar/2022/05?apikey=71431b71f89b61312bcfa6c9a5efebd295273d77&formato=json'
     r = requests.get(url)
     datos = r.json()
     return datos
